@@ -1,3 +1,4 @@
+
 // Application entrypoint.
 
 // Load up the application styles
