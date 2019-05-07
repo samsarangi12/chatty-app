@@ -2,6 +2,15 @@ import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
 
+function generateRandomString() {
+  var text = "";
+  var possible = "01234567";
+  for (var i = 0; i < 7; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length))
+  }
+  return parseInt(text);
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +29,20 @@ class App extends Component {
         }
       ]
     }
+    this.addNewMessage = this.addNewMessage.bind(this)
   }
+
+
+  addNewMessage(newMessage) {
+    const oldMessages = this.state.messages;
+    const newMessagesObject = {};
+    newMessagesObject.username = this.state.currentUser.name;
+    newMessagesObject.content = newMessage;
+    newMessagesObject.id =  generateRandomString();
+    const newTasks = [...oldMessages, newMessagesObject];
+    this.setState({ messages: newTasks });
+  }
+
   componentDidMount() {
     console.log("componentDidMount <App />");
     setTimeout(() => {
@@ -40,7 +62,7 @@ class App extends Component {
     return (
       <div>
         <main className="messages">{messageList} </main>
-        <ChatBar currentUser={this.state.currentUser} />
+        <ChatBar currentUser={this.state.currentUser} addNewMessage={this.addNewMessage}/>
       </div>
     );
   }
