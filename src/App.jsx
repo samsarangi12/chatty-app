@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
-import ClientCount from './clientCount.jsx';
 import NotificationMsgs from './notificationmsgs.jsx';
 
 const webSocket = new WebSocket("ws://localhost:3001")
