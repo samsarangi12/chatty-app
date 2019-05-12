@@ -4,8 +4,6 @@ import MessageList from './MessageList.jsx';
 import NotificationMsgs from './notificationmsgs.jsx';
 
 const webSocket = new WebSocket("ws://localhost:3001");
-let clientCount = "";
-let totalClients = "";
 
 class App extends Component {
   constructor(props) {
