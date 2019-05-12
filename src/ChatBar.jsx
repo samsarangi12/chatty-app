@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 class ChatBar extends Component {
+
+  //***********************************************************************//
+  // Method to capture any message in chatty app at the press of enter key //
+  //***********************************************************************//  
   _handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       let newMessageInput = "";
@@ -10,6 +14,11 @@ class ChatBar extends Component {
       e.target.value = "";
     }
   };
+
+  //************************************************//
+  // Method to capture change of user in chatty app //
+  //************************************************//
+
   _changeUser = (e) => {
     let newUser = "";
     newUser = e.target.value;

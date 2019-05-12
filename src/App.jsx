@@ -3,7 +3,7 @@ import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
 import NotificationMsgs from './notificationmsgs.jsx';
 
-const webSocket = new WebSocket("ws://localhost:3001")
+const webSocket = new WebSocket("ws://localhost:3001");
 let clientCount = "";
 let totalClients = "";
 
@@ -16,14 +16,18 @@ class App extends Component {
       messages: [],
       clientCount: 0
     }
-    this.addNewMessage = this.addNewMessage.bind(this)
-    this.changeUser = this.changeUser.bind(this)
+    this.addNewMessage = this.addNewMessage.bind(this);
+    this.changeUser = this.changeUser.bind(this);
   }
+
+  //********************************************************//
+  // Method to add messages and send it to WebSocket Server //
+  //********************************************************//
 
   addNewMessage(curentUser, newMessage) {
     let changedUser =  curentUser;
     if (!curentUser) {
-      changedUser = "Anonymous"
+      changedUser = "Anonymous";
     }
     const newMessagesObject = {
       type: "postMessage",
@@ -33,15 +37,19 @@ class App extends Component {
     webSocket.send(JSON.stringify(newMessagesObject));
   }
 
+  //************************************************************//
+  // Method to send notification when a user changes their name //
+  //************************************************************//
+
   changeUser(newUser) {
     let changedUser = newUser;
     if (!newUser) {
-      changedUser = "Anonymous"
+      changedUser = "Anonymous";
     }
 
-    let currentUser = this.state.currentUser.name
+    let currentUser = this.state.currentUser.name;
     if(!this.state.currentUser.name) {
-      currentUser = "Anonymous"
+      currentUser = "Anonymous";
     }
     
     const newMessagesObject = {
@@ -59,7 +67,7 @@ class App extends Component {
   
   componentDidMount() {
     console.log("componentDidMount <App />");
-    console.log("user connected")
+    console.log("user connected");
 
     webSocket.onmessage = evt => {
       // on receiving a message, add it to the list of messages
@@ -69,7 +77,7 @@ class App extends Component {
       let newTasks = [];
 
       if (Number.isInteger(message)) {
-        this.setState({ clientCount: message })
+        this.setState({ clientCount: message });
       }
 
       switch(message.type) {
@@ -86,10 +94,9 @@ class App extends Component {
           oldMessages = this.state.messages;
           incomingMessages.type = message.type;
           incomingMessages.id = message.id;
-          //incomingMessages.username = message.username;
           incomingMessages.content = message.content;
           newTasks = [...oldMessages, incomingMessages];
-          this.setState({ messages: newTasks })
+          this.setState({ messages: newTasks });
           break;
       }
     }
@@ -97,7 +104,7 @@ class App extends Component {
   render() {
     const messageList = this.state.messages.map(message => {
       if (message.type === "incomingMessage") {
-        return <MessageList key={message.id} allMessages={message} />
+        return <MessageList key={message.id} allMessages={message} />;
       } else if (message.type === "incomingNotification") {
         return <NotificationMsgs key={message.id} allMessages={message} />;
       }
