@@ -32,4 +32,4 @@ Chatty App is a simple, single-page REACT based communication app which allows u
 
 ![Screen print for the homepage](https://github.com/samsarangi12/chatty-app/blob/master/docs/home_page.png)
 ![Screen print for change in user name](https://github.com/samsarangi12/chatty-app/blob/master/docs/user-name-change-notification.png)
-![Screen print for multiple users exchanging messages](https://github.com/samsarangi12/chatty-app/blob/master/docs/user-name-change-notification.png)
+![Screen print for multiple users exchanging messages](https://github.com/samsarangi12/chatty-app/blob/master/docs/multiple-users-exchanging-message.png)
