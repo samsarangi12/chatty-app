@@ -30,8 +30,6 @@ Chatty App is a simple, single-page REACT based communication app which allows u
 
 ## Screen-Prints
 
-![Screen print for the homepage](https://github.com/samsarangi12/tweeter/blob/master/docs/homepage.png)
-![Screen print for compose tweet](https://github.com/samsarangi12/tweeter/blob/master/docs/compose-tweet.png)
-![Screen print for error message for empty tweet](https://github.com/samsarangi12/tweeter/blob/master/docs/error-message-for-empty-tweet.png)
-![Screen print for error message for tweet longer than 140 characters](https://github.com/samsarangi12/tweeter/blob/master/docs/error-too-long-tweet.png)
-
+![Screen print for the homepage](https://github.com/samsarangi12/chatty-app/blob/master/docs/home_page.png)
+![Screen print for change in user name](https://github.com/samsarangi12/chatty-app/blob/master/docs/user-name-change-notification.png)
+![Screen print for multiple users exchanging messages](https://github.com/samsarangi12/chatty-app/blob/master/docs/user-name-change-notification.png)
